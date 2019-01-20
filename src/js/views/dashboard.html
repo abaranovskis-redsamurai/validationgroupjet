@@ -1,0 +1,34 @@
+<!--
+ Copyright (c) 2014, 2019, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <div class="oj-panel">
+    <div class="oj-lg-float-end" id='btc1'>
+      <oj-button id='bt1' on-oj-action="[[paymentRiskCalculation]]">Process</oj-button>
+    </div>
+    <h3 class="oj-header-border" data-bind="text: 'Payment Risk Calculation'"></h3>
+    <br />
+    <oj-validation-group id="tracker" valid="{{groupValid}}">
+      <oj-form-layout id="fl1" label-edge="start" max-columns="2">
+        <oj-input-text id="it1" value="[[invoiceId]]" label-hint="Invoice ID" readonly="true"></oj-input-text>
+        <oj-label for="lov1" show-required="true">Customer Name</oj-label>
+        <oj-combobox-one id="lov1" value="{{customerSelected}}" required="true" style="max-width:15em">
+          <oj-option value="21">Treatley</oj-option>
+          <oj-option value="8">Veggius</oj-option>
+          <oj-option value="11">Beetro</oj-option>
+          <oj-option value="4">Feasthouse</oj-option>
+          <oj-option value="13">Lemonini</oj-option>
+        </oj-combobox-one>
+        <oj-input-text id="it3" value="{{invoiceAmount}}" required converter=[[numberConverter]] label-hint="Grand Total"
+          style="max-width:15em"></oj-input-text>
+        <oj-input-date id="d2" value="{{currentDateValueRisk}}" required converter=[[dateConverter]] label-hint="Invoice Date"
+          style="max-width:15em"></oj-input-date>
+        <oj-input-date id="d3" value="{{dueDateValueRisk}}" validators="[[[dueDateCheck]]]" converter=[[dateConverter]]
+          required label-hint="Payment Due Date" style="max-width:15em"></oj-input-date>
+        <oj-input-date id="d4" value="{{payDateValueRisk}}" validators="[[[paymentDateCheck]]]" converter=[[dateConverter]]
+          required label-hint="Payment Date" style="max-width:15em"></oj-input-date>
+      </oj-form-layout>
+    </oj-validation-group>
+  </div>
+</div>
